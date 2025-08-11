@@ -2,7 +2,7 @@ import { TeacherAuthorization } from '@/backend/common/domains/entities/TeacherA
 import { IAdmTchrAuthRepository } from '@/backend/common/domains/repositories/IAdmTchrAuthRepository';
 
 // 교사 인증 요청 승인 유스케이스
-export class ApproveTeacherAuthUseCase {
+export class ApproveTeacherAuthUsecase {
   private teacherAuthRepository: IAdmTchrAuthRepository;
 
   constructor(teacherAuthRepository: IAdmTchrAuthRepository) {

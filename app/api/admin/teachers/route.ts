@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { CreateTeacherAuthUseCase } from '@/backend/admin/teachers/usecases/CreateTeacherAuthUseCase';
-import { SelectTeacherAuthListUseCase } from '@/backend/admin/teachers/usecases/SelectTeacherAuthListUseCase';
-import { DeleteTeacherAuthUseCase } from '@/backend/admin/teachers/usecases/DeleteTeacherAuthUseCase';
+import { CreateTeacherAuthUsecase } from '@/backend/admin/teachers/usecases/CreateTeacherAuthUseCase';
+import { SelectTeacherAuthListUsecase } from '@/backend/admin/teachers/usecases/SelectTeacherAuthListUseCase';
+import { DeleteTeacherAuthUsecase } from '@/backend/admin/teachers/usecases/DeleteTeacherAuthUseCase';
 import { PrAdmTchrAuthRepository } from '@/backend/common/infrastructures/repositories/PrAdmTchrAuthRepository';
-import { ApproveTeacherAuthUseCase } from '@/backend/admin/teachers/usecases/ApproveTeacherAuthUseCase';
+import { ApproveTeacherAuthUsecase } from '@/backend/admin/teachers/usecases/ApproveTeacherAuthUseCase';
 import prisma from '@/libs/prisma';
 
 // 교사 인증 요청 생성
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     const { teacherId, imgUrl } = requestBody;
 
     const teacherAuthRepository = new PrAdmTchrAuthRepository(prisma);
-    const createTeacherAuthUseCase = new CreateTeacherAuthUseCase(
+    const createTeacherAuthUseCase = new CreateTeacherAuthUsecase(
       teacherAuthRepository
     );
 
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     const teacherAuthRepository = new PrAdmTchrAuthRepository(prisma);
-    const selectTeacherAuthUseCase = new SelectTeacherAuthListUseCase(
+    const selectTeacherAuthUseCase = new SelectTeacherAuthListUsecase(
       teacherAuthRepository
     );
 
@@ -78,7 +78,7 @@ export async function DELETE(request: NextRequest) {
     const { id } = await request.json();
 
     const teacherAuthRepository = new PrAdmTchrAuthRepository(prisma);
-    const deleteTeacherAuthUseCase = new DeleteTeacherAuthUseCase(
+    const deleteTeacherAuthUseCase = new DeleteTeacherAuthUsecase(
       teacherAuthRepository
     );
 
@@ -114,7 +114,7 @@ export async function PATCH(request: NextRequest) {
     }
 
     const teacherAuthRepository = new PrAdmTchrAuthRepository(prisma);
-    const approveTeacherAuthUseCase = new ApproveTeacherAuthUseCase(
+    const approveTeacherAuthUseCase = new ApproveTeacherAuthUsecase(
       teacherAuthRepository
     );
 
