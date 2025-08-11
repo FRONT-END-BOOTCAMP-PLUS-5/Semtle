@@ -1,7 +1,7 @@
 import { Unit } from '@/backend/common/domains/entities/Unit';
 import { IAdminUnitRepository } from '@/backend/common/domains/repositories/IAdminUnitRepository';
 
-export class UnitDeleteUseCase {
+export class DeleteUnitUsecase {
   private unitRepository: IAdminUnitRepository;
 
   constructor(unitRepository: IAdminUnitRepository) {

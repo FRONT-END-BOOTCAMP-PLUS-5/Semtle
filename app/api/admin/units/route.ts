@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { CreateUnitUseCase } from '@/backend/admin/unit/UseCases/CreateUnitUseCase';
-import { UnitSelectUseCase } from '@/backend/admin/unit/UseCases/SelectUnitUseCase';
+import { CreateUnitUsecase } from '@/backend/admin/units/Usecases/CreateUnitUsecase';
+import { UnitSelectUsecase } from '@/backend/admin/units/Usecases/SelectUnitUseCase';
 import { prAdminUnitRepository } from '@/backend/common/infrastructures/repositories/prAdminUnitRepository';
 import prisma from '@/libs/prisma';
 
@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const { name, vidUrl } = await request.json();
 
     const unitRepository = new prAdminUnitRepository(prisma);
-    const createUnitUseCase = new CreateUnitUseCase(unitRepository);
+    const createUnitUseCase = new CreateUnitUsecase(unitRepository);
 
     const unit = await createUnitUseCase.execute({ name, vidUrl });
 
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     const unitRepository = new prAdminUnitRepository(prisma);
-    const unitSelectUseCase = new UnitSelectUseCase(unitRepository);
+    const unitSelectUseCase = new UnitSelectUsecase(unitRepository);
 
     const result = await unitSelectUseCase.getAllUnits();
 

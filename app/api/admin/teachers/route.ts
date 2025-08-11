@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { CreateTeacherAuthUseCase } from '@/backend/admin/teacher/usecases/CreateTeacherAuthUseCase';
-import { SelectTeacherAuthListUseCase } from '@/backend/admin/teacher/usecases/SelectTeacherAuthListUseCase';
-import { DeleteTeacherAuthUseCase } from '@/backend/admin/teacher/usecases/DeleteTeacherAuthUseCase';
+import { CreateTeacherAuthUseCase } from '@/backend/admin/teachers/usecases/CreateTeacherAuthUseCase';
+import { SelectTeacherAuthListUseCase } from '@/backend/admin/teachers/usecases/SelectTeacherAuthListUseCase';
+import { DeleteTeacherAuthUseCase } from '@/backend/admin/teachers/usecases/DeleteTeacherAuthUseCase';
 import { PrAdmTchrAuthRepository } from '@/backend/common/infrastructures/repositories/PrAdmTchrAuthRepository';
-import { ApproveTeacherAuthUseCase } from '@/backend/admin/teacher/usecases/ApproveTeacherAuthUseCase';
+import { ApproveTeacherAuthUseCase } from '@/backend/admin/teachers/usecases/ApproveTeacherAuthUseCase';
 import prisma from '@/libs/prisma';
 
 // 교사 인증 요청 생성

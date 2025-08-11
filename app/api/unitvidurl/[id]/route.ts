@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { VidUrlSelectUseCase } from '@/backend/admin/unit/UseCases/VidUrlSelectUseCase';
+import { VidUrlSelectUseCase } from '@/backend/admin/units/Usecases/VidUrlSelectUseCase';
 import { prAdminUnitRepository } from '@/backend/common/infrastructures/repositories/prAdminUnitRepository';
 import prisma from '@/libs/prisma';
 
