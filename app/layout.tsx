@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Providers from '@/libs/providers';
 import Header from './_components/header/Header';
@@ -7,6 +7,11 @@ import RoleBasedSidebar from './_components/sidebar/RoleBasedSidebar';
 export const metadata: Metadata = {
   title: 'Ssemtle',
   description: 'Ssemtle web service',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default async function RootLayout({

@@ -16,6 +16,42 @@ const koreanMathUnits = [
   '최소공배수',
 ];
 
+async function createBasicTestUsers() {
+  const basicUsers = [
+    { userId: '1', password: 'test-password', role: 'student', name: '학생' },
+    { userId: '2', password: 'test-password', role: 'teacher', name: '선생님' },
+    { userId: '3', password: 'test-password', role: 'admin', name: '관리자' },
+  ];
+
+  for (const userData of basicUsers) {
+    const user = await prisma.user.findFirst({
+      where: { userId: userData.userId },
+    });
+
+    if (!user) {
+      const hashed = await bcrypt.hash(userData.password, 12);
+      await prisma.user.create({
+        data: {
+          userId: userData.userId,
+          password: hashed,
+          name: userData.name,
+          role: userData.role,
+        },
+      });
+    } else if (!user.password.startsWith('$2')) {
+      const hashed = await bcrypt.hash(userData.password, 12);
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { password: hashed },
+      });
+    }
+  }
+
+  console.log(
+    '✓ Created/verified basic test users (1/student, 2/teacher, 3/admin)'
+  );
+}
+
 async function main() {
   console.log('Starting seed...');
 
@@ -36,6 +72,9 @@ async function main() {
   }
 
   console.log(`✓ Created/verified ${koreanMathUnits.length} units`);
+
+  // Create basic test users with different roles
+  await createBasicTestUsers();
 
   // Get all units for solve generation
   const units = await prisma.unit.findMany();

@@ -10,7 +10,7 @@ interface TestCardProps {
 export default function TestCard({ solves, category }: TestCardProps) {
   if (!solves?.length) {
     return (
-      <div className="inline-flex w-96 flex-col items-center justify-center overflow-hidden rounded-2xl bg-white/90 p-4 shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] shadow-lg outline outline-1 outline-offset-[-1px] outline-zinc-300 backdrop-blur-[2px]">
+      <div className="inline-flex w-96 flex-col items-center justify-center overflow-hidden rounded-2xl bg-white/90 p-4 shadow-lg outline-1 outline-offset-[-1px] outline-zinc-300 backdrop-blur-[2px] desktop:min-w-96 desktop:grow">
         <div className="text-sm text-gray-600">데이터가 없습니다</div>
       </div>
     );
@@ -36,7 +36,7 @@ export default function TestCard({ solves, category }: TestCardProps) {
     : '';
 
   return (
-    <div className="inline-flex w-96 flex-col items-start justify-start overflow-hidden rounded-2xl bg-white/90 p-4 shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] shadow-lg outline outline-1 outline-offset-[-1px] outline-zinc-300 backdrop-blur-[2px]">
+    <div className="inline-flex w-96 flex-col items-start justify-start overflow-hidden rounded-2xl bg-white/90 p-4 shadow-lg outline-1 outline-offset-[-1px] outline-zinc-300 backdrop-blur-[2px] desktop:w-6xl desktop:min-w-96 desktop:grow">
       <div className="flex flex-col items-start justify-start self-stretch">
         <div className="inline-flex items-center justify-start self-stretch">
           <div className="justify-end font-['Inter'] text-lg leading-7 font-bold text-gray-800">
@@ -61,7 +61,7 @@ export default function TestCard({ solves, category }: TestCardProps) {
           </div>
         ))}
       </div>
-      <div className="flex flex-col items-start justify-start gap-1 self-stretch pt-1">
+      <div className="mt-auto flex flex-col items-start justify-start gap-1 self-stretch pt-1">
         <div className="inline-flex items-start justify-between self-stretch">
           <div className="justify-center font-['Inter'] text-sm leading-tight font-normal text-gray-600">
             정답률

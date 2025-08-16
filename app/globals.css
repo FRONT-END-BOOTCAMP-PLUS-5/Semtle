@@ -17,7 +17,7 @@ body {
 }
 
 /* Design System Tokens as CSS Variables */
-:root {
+@theme {
   /* Color Tokens */
   --color-primary: #8b5cf6;
   --color-primary-dark: #4a5d3a;
@@ -27,9 +27,9 @@ body {
   --color-text-secondary: white;
   --color-error: #e87a74;
   --color-disabled: #a0aec0;
-  --color-sidebar: rgb(254, 247, 255);
-  --color-sidebar-button: #eaddff;
-  --color-sidebar-icon: #6750a4;
+  --color-sidebar: rgb(254,247,255);
+  --color-sidebar-button: #EADDFF;
+  --color-sidebar-icon: #6750A4;
 
   /* Spacing Tokens */
   --spacing-0: 0px;
@@ -44,6 +44,12 @@ body {
   --spacing-9: 36px;
   --spacing-10: 40px;
 
+  /* Breakpoint Variant Tokens */
+  --breakpoint-tablet: 1180px;
+  --breakpoint-desktop: 1440px;
+}
+
+:root {
   /* Button Variant Tokens */
   /* Primary */
   --button-variant-primary-bg: var(--color-primary);
